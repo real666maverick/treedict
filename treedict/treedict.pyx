@@ -148,8 +148,9 @@ cdef inline bint isValidName(str n):
 
     if n is None: 
         return False
-
-    return (_string_name_validator_match(n) is not None)
+    if '/' in n:
+        return False
+    return 1
 
 cdef inline str catNames(str s1, str s2):
     if len(s1) == 0:
